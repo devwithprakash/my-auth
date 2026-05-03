@@ -8,7 +8,6 @@ import cors from "cors"
 
 import clientRoute from "./routes/client.route";
 import authRoute from "./routes/auth.route";
-import { generateToken } from "./controller/auth.controller";
 
 const app = express();
 const PORT = process.env.PORT ?? 8080;
@@ -53,7 +52,7 @@ app.get("/health", (req, res) => {
 });
 
 app.get("/.well-known/openid-configuration", (req, res) => {
-  const ISSUER = `http://localhost:${PORT}`;
+  const ISSUER = `https://my-auth-48v9.onrender.com`;
 
   return res.json({
     issuer: ISSUER,
