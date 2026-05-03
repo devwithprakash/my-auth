@@ -92,7 +92,11 @@ const logout = async (req, res) => {
       return res.status(500).send("Logout failed");
     }
 
-    res.clearCookie("connect.sid");
+    res.clearCookie("connect.sid", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "lax",
+    });
 
     return res.redirect("http://localhost:8000");
   });
@@ -336,5 +340,5 @@ export {
   renderConsent,
   codeGenerate,
   generateToken,
-  logout
+  logout,
 };

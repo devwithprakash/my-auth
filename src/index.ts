@@ -16,12 +16,8 @@ const PORT = process.env.PORT ?? 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  cors({
-    origin: "http://localhost:5000",
-    credentials: true,
-  })
-);
+
+app.set("trust proxy", 1);
 
 app.use(
   session({
@@ -30,7 +26,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: false, // true only in HTTPS
+      secure: true, // true only in HTTPS
       sameSite: "lax",
     },
   }),
