@@ -86,6 +86,18 @@ const register = async (req: Request, res: Response) => {
   return res.redirect("/oauth/authenticate");
 };
 
+const logout = async (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send("Logout failed");
+    }
+
+    res.clearCookie("connect.sid");
+
+    return res.redirect("http://localhost:8000");
+  });
+};
+
 const authorizeClient = async (req, res: Response) => {
   const clientId = req.query.client_id as string;
   const redirectUri = req.query.redirect_uri as string;
@@ -324,4 +336,5 @@ export {
   renderConsent,
   codeGenerate,
   generateToken,
+  logout
 };
