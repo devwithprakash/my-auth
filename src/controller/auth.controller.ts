@@ -117,7 +117,7 @@ const authorizeClient = async (req, res: Response) => {
     return res.redirect("/oauth/authenticate");
   }
 
-  return res.redirect("/consent");
+  return res.redirect("/");
 };
 
 const renderConsent = async (req: Request, res: Response) => {
