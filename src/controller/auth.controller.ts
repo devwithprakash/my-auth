@@ -271,7 +271,7 @@ const generateToken = async (req: Request, res: Response) => {
     .set({ used: true })
     .where(eq(authTable.id, authCode.id));
 
-  const ISSUER = `http://localhost:${process.env.PORT}`;
+  const ISSUER = `https://my-auth-48v9.onrender.com`;
   const now = Math.floor(Date.now() / 1000);
 
   const accessToken = jwt.sign(
