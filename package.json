@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "dev": "tsc --watch",
-    "db:migrate": "drizzle-kit migrate",
-    "db:generate": "drizzle-kit generate",
-    "db:studio": "drizzle-kit studio"
-  },
+"scripts": {
+  "dev": "tsc --watch",
+  "build": "tsc",
+  "start": "node dist/index.js",
+  "db:migrate": "drizzle-kit migrate",
+  "db:generate": "drizzle-kit generate",
+  "db:studio": "drizzle-kit studio"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
